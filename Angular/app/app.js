@@ -26,15 +26,14 @@ MusicHistory.config(["$routeProvider",
     $routeProvider.
       when("/", {
         templateUrl: "partials/song-list.html",
-        controller: "SongCtrl",
-        controllerAs: "ctrl"
+        controller: "SongCtrl"
         // resolve: { isAuth }
       }).
-      // when("/song", {
-      //   templateUrl: "partials/song.html",
-      //   controller: "SongDetailCtrl",
-      //   // resolve: { isAuth }
-      // }).
+      when("/song/:id", {
+        templateUrl: "partials/song.html",
+        controller: "SongDetailCtrl",
+        // resolve: { isAuth }
+      }).
       otherwise({
         redirectTo: "/"
       });
