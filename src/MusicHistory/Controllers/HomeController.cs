@@ -3,17 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MusicHistory.Models;
+
+
+// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MusicHistory.Controllers
-{
+{  
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class HomeController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private MusicHistoryContext _context;
+
+        public HomeController(MusicHistoryContext context)
         {
-            return new string[] { "value1", "value2" };
+            _context = context;
+        }
+        // GET: api/values
+        [HttpGet]
+        public IEnumerable<Track> Get()
+        {
+            IQueryable<Track> Tracks = from t in _context.Track                                  
+                                        select t;
+            return Tracks;
         }
 
         // GET api/values/5
