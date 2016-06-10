@@ -10,7 +10,6 @@ namespace MusicHistory.Models
     {
         [Key]
         public int TrackId { get; set; }
-        public string Genre { get; set; }
         public string Artist { get; set; }
         public int AlbumId { get; set; }
         public string TrackName { get; set; }

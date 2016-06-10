@@ -4,7 +4,7 @@ MusicHistory.controller("SongCtrl", [
  "$scope",
  
 
-  ($scope) => {
+  function ($scope) {
 
     $scope.song = "this is a song";
 

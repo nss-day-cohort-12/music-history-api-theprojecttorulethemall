@@ -27,6 +27,7 @@ MusicHistory.config(["$routeProvider",
       when("/", {
         templateUrl: "partials/song-list.html",
         controller: "SongCtrl",
+        controllerAs: "ctrl"
         // resolve: { isAuth }
       }).
       // when("/song", {
