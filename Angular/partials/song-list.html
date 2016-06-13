@@ -1,6 +1,10 @@
-<h1>Hello World</h1>
+<h1>List of All Songs:</h1>
+<div id="filter_div">
+	<h2>Filter By Title:</h2>
+	<input id="title_filter" type="text">
+</div>
 
-<div ng-repeat="song in song_list">
-	<h1> {{song.TrackName}} </h1>
+<div class="song_div" ng-repeat="song in song_list">
+	<h1> {{song.TrackName}}  by:  {{song.Artist}} </h1>
 	<button ng-click="details(song.TrackId)">details</button>
 </div>
