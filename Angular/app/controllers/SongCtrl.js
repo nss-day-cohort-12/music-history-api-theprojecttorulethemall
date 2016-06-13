@@ -18,5 +18,16 @@ MusicHistory.controller("SongCtrl", [
     $scope.details = function (id) {
       $location.path(`/song/${id}`);
     }
+
+    // Title Filter Get
+    $("#title_filter").on('keyup', function() {
+      var serachString = $("#title_filter").val();
+      console.log('serachString', serachString);
+
+      $http 
+        .get(`http://localhost:61927/api/Home?trackName=${serachString}`)
+        .success(inv => $scope.song_list = inv);
+
+    })  
   }
 ]);

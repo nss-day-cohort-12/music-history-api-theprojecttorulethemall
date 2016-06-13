@@ -29,7 +29,16 @@ namespace MusicHistory
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=MusicHistory;Trusted_Connection=True;";
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("http://example.com")
+                     .AllowAnyHeader()
+                     .AllowAnyOrigin()
+                );
+            });
+
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;";
             services.AddDbContext<MusicHistoryContext>(options => options.UseSqlServer(connection));    
             // Add framework services.
             services.AddMvc();
