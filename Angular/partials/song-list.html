@@ -1,5 +1,4 @@
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
 <h1>List of All Songs:</h1>
 <div id="filter_div">
 	<h2>Filter By Title:</h2>
@@ -9,4 +8,8 @@
 <div class="song_div" ng-repeat="song in song_list">
 	<h1> {{song.TrackName}}  by:  {{song.Artist}} </h1>
 	<button ng-click="details(song.TrackId)">details</button>
+</div>
+
+<div class="your_list">
+	<button id="view_list">View your list</button>
 </div>
